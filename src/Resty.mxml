@@ -2,44 +2,29 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/halo" minWidth="1024" minHeight="768" xmlns:components="components.*"
-			   applicationComplete="application1_applicationCompleteHandler(event)"
 			   >
 
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
 			import components.MyClass;
-			protected function button2_activateHandler(event:Event):void
-			{
-				// TODO Auto-generated method stub
-				trace("clicked two");
-			}
 			[Bindable]
 			public var myClass : MyClass;
-			protected function doSomething() : void {
+			protected function save() : void {
 				myClass = new MyClass();
 				myClass.myProp = "some val";
 				trace(myClass.myProp);
 			}
-
-			protected function application1_applicationCompleteHandler(event:FlexEvent):void
-			{
-				// TODO Auto-generated method stub
-			}
-
 		]]>
 	</fx:Script>
 
 	<fx:Declarations>
-		<s:RadioButtonGroup id="radiogroup1"/>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	
-	<components:ComplexComponent id="my_component">
-		<s:Label text="{myClass.myProp}" />
-		<s:Button label="Button 1" click="doSomething()" />
-		<s:Button label="Button 2" click="myClass.myProp = 'some val2'" />
-	</components:ComplexComponent>
-	<s:RadioButton x="135" y="254" label="Button 1" groupName="radiogroup1"/>
-	<s:RadioButton x="135" y="280" label="Button 2" groupName="radiogroup1"/>
+	<s:TextInput x="180" y="52" id="first_name" text="First Name"/>
+	<s:TextInput x="180" y="78" id="last_name" text="Last Name"/>
+	<s:TextInput x="180" y="104" id="favorite_color" text="Favorite Color"/>
+	<s:TextInput x="180" y="134" id="favorite_food" text="Favorite Food"/>
+	<s:Button x="180" y="164" label="Save" click="save()"/>
 </s:Application>
