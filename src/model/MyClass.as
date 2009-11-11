@@ -1,4 +1,4 @@
-package components
+package model
 {
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;

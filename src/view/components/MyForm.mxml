@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/halo" width="400" height="300">
+	<fx:Metadata>
+		[Event(name="save", type="flash.events.Event")]
+	</fx:Metadata>
+	<fx:Script>
+		<![CDATA[
+			protected function save() : void
+			{
+				dispatchEvent(new Event("save"));
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+
+	<s:TextInput x="180" y="52" id="first_name" text="First Name"/>
+	<s:TextInput x="180" y="78" id="last_name" text="Last Name"/>
+	<s:TextInput x="180" y="104" id="favorite_color" text="Favorite Color"/>
+	<s:TextInput x="180" y="134" id="favorite_food" text="Favorite Food"/>
+	<s:Button x="180" y="164" label="Save" click="save()"/>
+</s:Group>

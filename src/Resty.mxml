@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/halo" minWidth="1024" minHeight="768" xmlns:components="components.*"
-			   >
-
+			   xmlns:mx="library://ns.adobe.com/flex/halo" minWidth="1024" minHeight="768"
+			   xmlns:components="view.components.*">
 	<fx:Script>
 		<![CDATA[
-			import mx.events.FlexEvent;
-			import components.MyClass;
+			import model.MyClass;
 			[Bindable]
-			public var myClass : MyClass;
+			public var myClass : model.MyClass;
 			protected function save() : void {
 				myClass = new MyClass();
 				myClass.myProp = "some val";
 				trace(myClass.myProp);
+				myComplexComponent.doSomething();
 			}
 		]]>
 	</fx:Script>
-
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
-	
-	<s:TextInput x="180" y="52" id="first_name" text="First Name"/>
-	<s:TextInput x="180" y="78" id="last_name" text="Last Name"/>
-	<s:TextInput x="180" y="104" id="favorite_color" text="Favorite Color"/>
-	<s:TextInput x="180" y="134" id="favorite_food" text="Favorite Food"/>
-	<s:Button x="180" y="164" label="Save" click="save()"/>
+	<s:VGroup>
+		<components:MyForm save="save()" />
+		<components:ComplexComponent id="myComplexComponent" />
+	</s:VGroup>
 </s:Application>
